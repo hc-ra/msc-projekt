@@ -1,0 +1,8 @@
+function [ vals ] = gen_peaks ( len, n_peaks, min_sigma, scale )
+    vals = zeros(1, len);
+    for i = 1:n_peaks
+        peak = scale * normpdf((1:len), randi(len), min_sigma * (1 + 0.3 * abs(randn()))); % 
+        vals = vals + peak;
+    end
+end
+
