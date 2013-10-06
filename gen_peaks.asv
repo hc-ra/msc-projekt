@@ -1,7 +1,9 @@
-function [ vals ] = gen_peaks ( len, n_peaks, min_sigma, scale )
+function [ vals ] = gen_peaks ( len, n_peaks, sigma_mod, scale )
     vals = zeros(1, len);
     for i = 1:n_peaks
-        peak = scale * normpdf((1:len), randi(len), min_sigma * (1 + 0.3 * abs(randn()))); % 
+        rnd = randn();
+        prim_sigma = max(1, ;
+        peak = scale * normpdf((1:len), randi(len), sigma_mod * max(1, (2 + randn()))); % multiply random by s.d.
         vals = vals + peak;
     end
 end
