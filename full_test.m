@@ -2,7 +2,7 @@
 
 bsmp = gen_sample_basic(1000, 300, 100, 0.5, 1, 0.2);
 
-% gen_sample( len, start, slope_len, b0, b1, noise_scale, n_peaks, min_sigma, peak_max )
+% gen_sample( len, start, slope_len, b0, b1, noise_scale, n_peaks, sigma_mod, peak_max )
 [smp, pks] = gen_sample(25000, 12000, 2000, 0.5, 1.2, 0.04, 5, 20, 1);
 trend = gen_trend( 25000, 12000, 2000, 0.5, 1.2 );
 % 
