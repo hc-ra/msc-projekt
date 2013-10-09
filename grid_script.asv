@@ -1,0 +1,28 @@
+sample = vibro(5).value;
+grid = make_grid(sample, 1000, 100);
+
+% works, because padding cells have at most 3 non-0 neighbors.
+% it doesn't affect the current rule, needs revision for others
+
+grid = padarray(grid, [1 1])
+%grid = a;
+
+imagesc(grid)
+colormap(jet)
+%colormap(flipud(gray))
+set(gca,'YDir','normal','GridLineStyle','-','XGrid','on','YGrid','on')
+hold all
+
+pause
+for i = (1:100)
+    new_grid = do_iteration(grid);
+    disp(nnz(grid ~= new_grid))
+    if isequal(new_grid, grid)
+        disp('kikiki')
+        break
+    end
+    grid = new_grid;
+    img = rand(size(grid)) .* grid;
+    imagesc(img)
+    %pause(0.05)
+end
